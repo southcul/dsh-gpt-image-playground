@@ -20,7 +20,8 @@
     "SHARE.md",
     "LICENSE",
     "THIRD-PARTY-NOTICES.md",
-    "docs/**/*.png"
+    "docs/**/*.png",
+    "docs/**/*.md"
   ],
   "dsh": {
     "bundle": {
