@@ -1,0 +1,84 @@
+{
+  "name": "dsh-gpt-image-playground",
+  "version": "0.2.1",
+  "description": "GPT Image Playground as a DeepSeek Harness plugin: the upstream image generation and editing workbench, vendored, served same-origin, with an optional API proxy.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "vendor-app/**/*",
+    "cordis.patch.yml",
+    "install.mjs",
+    "install.ps1",
+    "README.md",
+    "SHARE.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md",
+    "docs/**/*.png"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    },
+    "upstream": {
+      "name": "gpt-image-playground",
+      "version": "0.8.3",
+      "repository": "https://github.com/CookSleep/gpt_image_playground",
+      "build": "vendor-app"
+    }
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "image-generation",
+    "image-editing",
+    "gpt-image",
+    "openai",
+    "cordis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/southcul/dsh-gpt-image-playground.git"
+  },
+  "homepage": "https://github.com/southcul/dsh-gpt-image-playground#readme",
+  "bugs": {
+    "url": "https://github.com/southcul/dsh-gpt-image-playground/issues"
+  },
+  "author": "southcul",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0 <5",
+    "react": ">=18.2.0 <19"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node test-server.mjs && node client-test.mjs",
+    "pack": "node tools/pack.mjs",
+    "check:package": "node tools/check-package.mjs",
+    "prepublishOnly": "node test-server.mjs && node client-test.mjs && node tools/check-package.mjs"
+  },
+  "license": "MIT"
+}

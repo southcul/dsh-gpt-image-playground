@@ -1,0 +1,6 @@
+# Bundle patch for dsh-gpt-image-playground: one loader entry, inserted by the
+# bundle layer so enabling the bundle in `dsh.profile.bundles` is enough.
+- insert:
+    - id: gpt-image-playground
+      name: dsh-gpt-image-playground
+      config: {}

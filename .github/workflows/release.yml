@@ -1,0 +1,52 @@
+name: Release
+
+# 推送 v* 标签时：打 zip/tgz → 建 GitHub Release（可选：同时发布到 npm）
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Pack distributables
+        run: python3 tools/pack.py
+
+      - name: Publish to npm
+        # 只有配置了 NPM_TOKEN 这个 secret 才会执行，没配就跳过。
+        if: env.NPM_TOKEN != ''
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          npm publish --access public --provenance
+        continue-on-error: true
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.zip
+            dist/*.tgz
+          generate_release_notes: true
+          body: |
+            **安装方式**
+
+            - DSH 插件页 → 安装 → 填 `dsh-gpt-image-playground`（已发布到 npm 时）
+            - 或下载下面的 `.zip`，解压后在 DSH 插件页填该目录的绝对路径
+            - 或下载 `.tgz`，用 `dsh plugin --profile desktop add <路径或直链>`
+
+            **本版本内置的上游构建**：GPT Image Playground v0.8.3（MIT，作者 CookSleep）。
+            详见仓库中的 `THIRD-PARTY-NOTICES.md`。

@@ -1,0 +1,26 @@
+# 依赖与产物
+node_modules/
+dist/
+npm-pack/
+*.tgz
+
+# 发布凭证，绝不入库
+.npmrc
+.npmrc.local
+
+# 本地预览与测试的临时数据
+preview/.data/
+preview/shots/
+preview/vendor/
+preview/samples/
+preview/*.log
+preview/*.err
+
+# 开发期解包出来的框架源码
+framework/
+upstream/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.bak-*
