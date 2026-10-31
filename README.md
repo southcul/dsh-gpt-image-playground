@@ -93,51 +93,7 @@ test-server.mjs       宿主半侧自测（原生 API + 静态托管 + 代理透
 client-test.mjs       浏览器半侧自测（注册 + 样式）
 ```
 
-## 发布到 npm
 
-**第一次发布？看 [docs/first-publish.md](docs/first-publish.md)，从注册账号到别人装上，一步一步。**
-
-```bash
-node tools/set-repo.mjs southcul --author "southcul"   # 仓库信息（已配好，换仓库时再跑）
-powershell -ExecutionPolicy Bypass -File .\publish.ps1  # 校验 → 测试 → 发布
-```
-
-- 凭证：`.npmrc` 里放 `//registry.npmjs.org/:_authToken=npm_…`（已在 `.gitignore` 中）
-- `prepublishOnly` 会自动跑两套自测 + `check-package`，任一项失败就不发布
-- 预演：`.\publish.ps1 -DryRun`；双因素认证：`.\publish.ps1 -Otp 123456`
-- 校验可单独跑：`node tools/check-package.mjs`（加 `--strict` 时占位符也算失败）
-- 发布后自查：`node tools/test-npm-tarball.mjs`（把 tarball 装进临时目录并实际挂载）
-
-## 开发
-
-```bash
-node test-server.mjs        # 宿主半侧
-node client-test.mjs        # 浏览器半侧
-node tools/pack.mjs         # 重新打 dist/（zip + tgz）
-node tools/test-pack.mjs    # 分发包回归
-node preview/serve.mjs --port 4518
-node tools/test-switch.mjs  # 切换面板不中断生成的回归测试
-```
-
-更新上游：
-
-```bash
-node tools/vendor-dist.mjs  # 从 GitHub Pages 抓官方构建
-node tools/pack.mjs
-```
-
-内置字体默认**不随包分发**（HarmonyOS Sans SC 三个字重 + Maple Mono，约 23 MB）：界面会回退到系统字体，显示正常。需要离线内置字体时：
-
-```bash
-node tools/fetch-fonts.mjs  # 下载到 vendor-app/assets，然后重新打包
-```
-
-发布：
-
-```bash
-powershell -ExecutionPolicy Bypass -File .\publish.ps1   # npm
-git tag v0.2.1 && git push origin v0.2.1                 # GitHub Release（Actions 打包含附件）
-```
 
 ## 许可与致谢
 
