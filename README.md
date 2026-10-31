@@ -43,10 +43,6 @@ git clone https://github.com/southcul/dsh-gpt-image-playground
 
 DSH → 插件 → 安装 → 填克隆目录的绝对路径。
 
-### 插件市场「发现」页
-
-目录收录后可搜到；收录流程见 [docs/awesome-submission.md](docs/awesome-submission.md)。
-
 ## 第一次使用
 
 1. 打开工作台 → 右上角齿轮 → **API 配置**，填 API URL 与 Key（存在本机浏览器存储，不上传）。
@@ -78,10 +74,6 @@ DSH → 插件 → 安装 → 填克隆目录的绝对路径。
 ![设置页](docs/screenshot-settings.png)
 
 工作台之所以常驻在 `shell.overlay` 而不是 `main` 面板里：DSH 的 `main` 是 keyed 槽，切换面板会卸载工作台，正在跑的生成请求会随 iframe 一起被销毁。现在占位盒只负责定位，iframe 切走时仅隐藏、不卸载。
-
-## 开发与发布
-
-构建、测试、更新上游、npm 发布流程见 [docs/development.md](docs/development.md)；第一次发布看 [docs/first-publish.md](docs/first-publish.md)。
 
 ## 许可与致谢
 
