@@ -1,6 +1,6 @@
 {
   "name": "dsh-gpt-image-playground",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "GPT Image Playground as a DeepSeek Harness plugin: the upstream image generation and editing workbench, vendored, served same-origin, with an optional API proxy.",
   "type": "module",
   "main": "lib/index.js",
