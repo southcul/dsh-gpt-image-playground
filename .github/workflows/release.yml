@@ -14,6 +14,9 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # 提到 job 层，step 的 `if` 才读得到；没配 secret 时为空字符串，npm 步骤自动跳过。
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -25,10 +28,7 @@ jobs:
         run: python3 tools/pack.py
 
       - name: Publish to npm
-        # 只有配置了 NPM_TOKEN 这个 secret 才会执行，没配就跳过。
         if: env.NPM_TOKEN != ''
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
           npm publish --access public --provenance
