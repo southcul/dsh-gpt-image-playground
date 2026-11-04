@@ -20,9 +20,13 @@ Changes made to the redistributed build:
 2. Two oversized UI fonts (`HarmonyOS_Sans_SC_Regular`, `HarmonyOS_Sans_SC_Medium`,
    ~15.7 MB total) are removed to keep the package small. The app makes no font
    requests in its default configuration and falls back to the system font.
-3. Three header controls ("安装为应用", "下载客户端", "操作指南") are hidden at
+3. Interface elements that only apply to the standalone site are hidden at
    runtime by CSS injected into the frame by `lib/client.js`. The shipped
-   JavaScript is untouched.
+   JavaScript is untouched:
+   - header controls "安装为应用", "下载客户端", "操作指南"
+   - the red "NEW" update badge next to the title (and the update dialog it opens)
+   - the settings "关于" tab
+   - the settings header's upstream version, replaced with this plugin's version
 
 No other files of the build were edited.
 
