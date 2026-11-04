@@ -53,6 +53,13 @@ const header = await page.evaluate(() => {
     download: probe('下载客户端'),
     guide: probe('操作指南'),
     settings: probe('设置'),
+    titleLinks: [...doc.querySelectorAll('header h1 a')].map((anchor) => ({
+      text: (anchor.textContent || '').trim().slice(0, 24),
+      href: anchor.getAttribute('href'),
+      marked: anchor.getAttribute('data-dsh-gipg-nolink'),
+      pointerEvents: doc.defaultView.getComputedStyle(anchor).pointerEvents,
+    })),
+    titlePlainText: [...doc.querySelectorAll('header h1 span')].map((item) => (item.textContent || '').trim()).filter(Boolean).slice(0, 2),
   }
 })
 

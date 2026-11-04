@@ -25,6 +25,8 @@ Changes made to the redistributed build:
    JavaScript is untouched:
    - header controls "安装为应用", "下载客户端", "操作指南"
    - the red "NEW" update badge next to the title (and the update dialog it opens)
+   - the product title's link to the upstream repository (the label stays, the
+     anchor loses `href`/`target`/`rel`)
    - the settings "关于" tab
    - the settings header's upstream version, replaced with this plugin's version
 
