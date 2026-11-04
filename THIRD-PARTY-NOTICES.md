@@ -10,14 +10,17 @@ publishing or shipping it.
 - Source: https://github.com/CookSleep/gpt_image_playground
 - Build redistributed: `vendor-app/` — the official production build published
   at https://cooksleep.github.io/gpt_image_playground/ (application version
-  **v0.8.3**, as shown in its own about panel)
+  **v0.8.4**, per the build's own service-worker cache tag)
 - License: MIT
 
 Changes made to the redistributed build:
 
 1. `vendor-app/announcements.json` is replaced with `[]`, which turns off the
    upstream announcement cards. No code was modified for this.
-2. Three header controls ("安装为应用", "下载客户端", "操作指南") are hidden at
+2. Two oversized UI fonts (`HarmonyOS_Sans_SC_Regular`, `HarmonyOS_Sans_SC_Medium`,
+   ~15.7 MB total) are removed to keep the package small. The app makes no font
+   requests in its default configuration and falls back to the system font.
+3. Three header controls ("安装为应用", "下载客户端", "操作指南") are hidden at
    runtime by CSS injected into the frame by `lib/client.js`. The shipped
    JavaScript is untouched.
 
