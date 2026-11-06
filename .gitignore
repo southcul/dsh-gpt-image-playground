@@ -24,3 +24,4 @@ upstream/
 .DS_Store
 Thumbs.db
 *.bak-*
+vendor-app.old/
