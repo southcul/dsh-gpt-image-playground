@@ -10,7 +10,7 @@ publishing or shipping it.
 - Source: https://github.com/CookSleep/gpt_image_playground
 - Build redistributed: `vendor-app/` — the official production build published
   at https://cooksleep.github.io/gpt_image_playground/ (application version
-  **v0.8.4**, per the build's own service-worker cache tag)
+  **v0.8.9**, per the build's own service-worker cache tag)
 - License: MIT
 
 Changes made to the redistributed build:

@@ -1,4 +1,4 @@
-# 基线：插件 0.2.5 / 上游 v0.8.4
+# 基线：插件 0.2.6 / 上游 v0.8.9
 
 下次升级请**从这个版本继续**，不要回到 0.2.x 之前的手写 UI 版本。
 本文件是维护记录，不在 npm 包内（`files` 只收 `docs/**/*.png`）。
@@ -7,12 +7,12 @@
 
 | 项 | 值 |
 |---|---|
-| 插件版本 | `0.2.5` |
-| 内嵌上游构建 | **v0.8.4**（GitHub Pages 官方构建，`vendor-app/sw.js` 里 `CACHE_NAME = gpt-image-playground-v0.8.4`） |
-| `vendor-app` | 82 个文件 / 3.71 MB |
-| npm | `dsh-gpt-image-playground@0.2.5`（latest） |
+| 插件版本 | `0.2.6` |
+| 内嵌上游构建 | **v0.8.9**（GitHub Pages 官方构建，`vendor-app/sw.js` 里 `CACHE_NAME = gpt-image-playground-v0.8.9`） |
+| `vendor-app` | 82 个文件 / 3.73 MB |
+| npm | `dsh-gpt-image-playground@0.2.6`（latest） |
 | GitHub | 提交 `7172f39`，Release `v0.2.5` |
-| 市场目录 | `dsh-plugin-catalog@2026.1105.15517` 收录，版本 `0.2.5`，分类 `vision` |
+| 市场目录 | `dsh-plugin-catalog@2026.1105.15517` 收录，版本 `0.2.6`，分类 `vision` |
 
 ## 二、对上游构建做的文件级改动（只有 3 条）
 

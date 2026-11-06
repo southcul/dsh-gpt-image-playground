@@ -48,5 +48,5 @@ jobs:
             - 或下载下面的 `.zip`，解压后在 DSH 插件页填该目录的绝对路径
             - 或下载 `.tgz`，用 `dsh plugin --profile desktop add <路径或直链>`
 
-            **本版本内置的上游构建**：GPT Image Playground v0.8.4（MIT，作者 CookSleep）。
+            **本版本内置的上游构建**：GPT Image Playground v0.8.9（MIT，作者 CookSleep）。
             详见仓库中的 `THIRD-PARTY-NOTICES.md`。
