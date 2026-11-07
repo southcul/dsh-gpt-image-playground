@@ -2,7 +2,7 @@
 
 > 用途：发社区 / 公众号 / 掘金 / LINUX DO / V2EX。
 > 下面给了**长版（公众号、知乎、掘金）**、**短版（V2EX、LINUX DO、群公告）**，以及标题与配图建议。
-> 全文事实均可核对：上游版本 v0.8.9、npm 包 `dsh-gpt-image-playground@0.2.6`。
+> 全文事实均可核对：上游版本 v0.8.9、npm 包 `dsh-gpt-image-playground@0.2.7`。
 
 ---
 

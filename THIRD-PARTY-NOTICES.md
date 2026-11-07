@@ -29,6 +29,10 @@ Changes made to the redistributed build:
      anchor loses `href`/`target`/`rel`)
    - the settings "关于" tab
    - the settings header's upstream version, replaced with this plugin's version
+4. One element is **added** rather than removed: a red hint next to
+   设置 → API 配置 → 当前配置 ("建议使用 ToolifyAi API 高效稳定") that links to
+   https://api.toolify-ai.com. It is injected by `lib/client.js` and is not part
+   of the upstream build.
 
 No other files of the build were edited.
 
