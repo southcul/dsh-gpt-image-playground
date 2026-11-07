@@ -1,7 +1,7 @@
 {
   "name": "dsh-gpt-image-playground",
   "version": "0.2.8",
-  "description": "GPT Image Playground as a DeepSeek Harness plugin: the upstream image generation and editing workbench, vendored, served same-origin, with an optional API proxy.",
+  "description": "Image generation and editing for GPT Image, Gemini (Nano Banana) and Grok, with official, OpenAI-compatible, api.toolify-ai.com and custom HTTP providers. Text-to-image, reference-image editing, canvas annotation, mask editing and Agent multi-turn chat, with images and history kept on your machine.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {

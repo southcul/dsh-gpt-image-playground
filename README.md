@@ -4,7 +4,9 @@
 [![license](https://img.shields.io/npm/l/dsh-gpt-image-playground)](LICENSE)
 [![node](https://img.shields.io/node/v/dsh-gpt-image-playground)](package.json)
 
-把 [CookSleep/gpt_image_playground](https://github.com/CookSleep/gpt_image_playground) 的**原版工作台**装进 [DeepSeek Harness](https://github.com/deepseek-ai)（DSH）：左栏多一个「生图工作台」，点开就是完整的画廊 / Agent 双模式、参考图与遮罩编辑、多供应商、收藏夹、历史管理。
+支持 **GPT Image**、**Gemini（Nano Banana）** 和 **Grok** 的图片生成与编辑工具，支持官方接口、OpenAI 兼容接口、api.toolify-ai.com 与自定义 HTTP 供应商。支持文本生图、参考图编辑、画板标注、遮罩编辑与 Agent 多轮对话，图片和历史记录保存在本地。
+
+装进 [DeepSeek Harness](https://github.com/deepseek-ai)（DSH）后，左栏多一个「生图工作台」，点开就是完整界面。
 
 界面与功能来自上游官方构建（v0.9.0，原样 vendor），插件自己只负责**同源托管**和**可选的 API 代理**。
 
