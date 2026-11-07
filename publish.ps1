@@ -7,10 +7,12 @@
 #
 # 可选参数： -Otp 123456 （账号开了双因素认证时）
 #          -DryRun     （只预演，不真发）
+#          -Yes        （跳过确认；默认会先问一次，因为发布不可撤销）
 
 param(
   [string]$Otp = '',
-  [switch]$DryRun
+  [switch]$DryRun,
+  [switch]$Yes
 )
 
 $ErrorActionPreference = 'Stop'
@@ -55,6 +57,21 @@ if ($LASTEXITCODE -ne 0) {
   Write-Host '校验未通过，已中止发布。' -ForegroundColor Red
   Read-Host '按回车退出'
   exit 1
+}
+
+# 发布不可撤销，且版本号一旦用掉就不能复用。默认先问一次；
+# 没有交互输入（例如被脚本调用）时按“取消”处理，绝不静默上传。
+if (-not $DryRun -and -not $Yes) {
+  $answer = ''
+  try {
+    $answer = Read-Host "即将发布 $($manifest.name)@$($manifest.version)。确认发布请输入 y"
+  } catch {
+    $answer = ''
+  }
+  if ($answer -ne 'y' -and $answer -ne 'Y') {
+    Write-Host '已取消，未做任何改动。（确认无误后加 -Yes 重跑）' -ForegroundColor Yellow
+    exit 1
+  }
 }
 
 $arguments = @($pnpm, 'publish', '--no-git-checks', '--reporter=append-only')
