@@ -6,7 +6,7 @@
 
 把 [CookSleep/gpt_image_playground](https://github.com/CookSleep/gpt_image_playground) 的**原版工作台**装进 [DeepSeek Harness](https://github.com/deepseek-ai)（DSH）：左栏多一个「生图工作台」，点开就是完整的画廊 / Agent 双模式、参考图与遮罩编辑、多供应商、收藏夹、历史管理。
 
-界面与功能来自上游官方构建（v0.8.9，原样 vendor），插件自己只负责**同源托管**和**可选的 API 代理**。
+界面与功能来自上游官方构建（v0.9.0，原样 vendor），插件自己只负责**同源托管**和**可选的 API 代理**。
 
 ![工作台](docs/screenshot-gallery.png)
 

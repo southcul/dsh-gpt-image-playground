@@ -69,6 +69,9 @@ const dialog = await page.evaluate(() => {
   const doc = document.querySelector('iframe').contentDocument
   const about = [...doc.querySelectorAll('button')].find((item) => (item.textContent || '').trim() === '关于')
   const badge = [...doc.querySelectorAll('span')].find((item) => /^v\d+\.\d+\.\d+$/.test((item.textContent || '').trim()) && (item.className || '').toString().includes('font-mono'))
+  const tip = doc.querySelector('[data-dsh-gipg-tip]')
+  const tipLabel = tip?.querySelector('span')
+  const tipLogo = tip?.querySelector('img')
   return {
     aboutFound: Boolean(about),
     aboutDisplay: about ? doc.defaultView.getComputedStyle(about).display : 'absent',
@@ -76,6 +79,17 @@ const dialog = await page.evaluate(() => {
     badgeText: badge ? badge.textContent.trim() : null,
     badgeTitle: badge ? badge.getAttribute('title') : null,
     nav: [...doc.querySelectorAll('nav button')].map((item) => (item.textContent || '').trim()).filter(Boolean),
+    tip: tip
+      ? {
+          text: tipLabel?.textContent ?? null,
+          href: tip.getAttribute('href'),
+          fontSize: tipLabel ? doc.defaultView.getComputedStyle(tipLabel).fontSize : null,
+          color: tipLabel ? doc.defaultView.getComputedStyle(tipLabel).color : null,
+          logo: tipLogo ? `${Math.round(tipLogo.getBoundingClientRect().width)}x${Math.round(tipLogo.getBoundingClientRect().height)}` : 'absent',
+          logoLoaded: tipLogo ? tipLogo.naturalWidth > 0 : null,
+          count: doc.querySelectorAll('[data-dsh-gipg-tip]').length,
+        }
+      : 'absent',
   }
 })
 
