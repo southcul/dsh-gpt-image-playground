@@ -33,7 +33,8 @@ Changes made to the redistributed build:
      feeds the hidden NEW badge
 4. One element is **added** rather than removed: a red hint next to
    设置 → API 配置 → 当前配置 ("建议使用 ToolifyAi API 高效稳定，注册享优惠") with the
-   ToolifyAi logo, linking to https://api.toolify-ai.com. It is injected by
+   ToolifyAi logo, linking to
+   https://api.toolify-ai.com/register?channel=c_surlfqwm. It is injected by
    `lib/client.js` and is not part of the upstream build.
 
 No other files of the build were edited.
