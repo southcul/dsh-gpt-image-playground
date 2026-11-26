@@ -8,7 +8,7 @@
 
 装进 [DeepSeek Harness](https://github.com/deepseek-ai)（DSH）后，左栏多一个「生图工作台」，点开就是完整界面。
 
-界面与功能来自上游官方构建（v0.9.3，原样 vendor），插件自己只负责**同源托管**和**可选的 API 代理**。
+界面与功能来自上游官方构建（v0.9.6，原样 vendor），插件自己只负责**同源托管**和**可选的 API 代理**。
 
 ![工作台](docs/screenshot-gallery.png)
 
